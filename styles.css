@@ -1,0 +1,26 @@
+html {
+    background-color:rgb(223, 177, 118)
+}
+
+.container{
+    width: 200px;
+    display: flex;
+    padding: 10%;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+}
+
+.error {
+    color: red;
+}
+
+.add-btn{
+    border-radius: 7px;
+    background-color: #eede01;
+    padding: 5px 5px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
