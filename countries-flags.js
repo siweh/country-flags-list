@@ -9,13 +9,15 @@ function CountryFlags(countryFlagList = []) {
     'Rwanda',
     'Ireland',
     'Switzerland',
+    'South Africa',
   ];
-  countries.sort();
+  //countries.sort();
 
-  const flags = ['🇦🇷', '🇧🇷', '🇨🇱', '🇿🇲', '🇺🇬', '🇲🇼', '🇷🇼', '🇮🇪', '🇨🇭'];
-  flags.sort();
+  const flags = ['🇦🇷', '🇧🇷', '🇨🇱', '🇿🇲', '🇺🇬', '🇲🇼', '🇷🇼', '🇮🇪', '🇨🇭', '🇿🇦'];
+  //flags.sort();
 
   let countryWithFlags = countryFlagList !== null ? countryFlagList : [];
+  let newAddedCountries = [];
   let errorMessage = '';
 
   function getCountryNamesWithFlags() {
@@ -26,33 +28,47 @@ function CountryFlags(countryFlagList = []) {
       //console.log(country + ' ' + flags[indexOfCountry]);
       return country + ' ' + flags[indexOfCountry];
     });
-    return countryWithFlags;
+    return countryWithFlags.sort();
   }
 
-  function addNewCountry(country) {
-    if (countryWithFlags.includes(country)) {
-      errorMessage = 'Country already exists';
-    } else if (country === Number) {
+  function getFlagEmoji(countryCode) {
+    const codePoints = countryCode
+      .split('')
+      .map((char) => 127397 + char.charCodeAt());
+    newAddedCountries.push(String.fromCodePoint(...codePoints));
+    return newAddedCountries;
+  }
+  function addNewCountry(countryName) {
+    newAddedCountries.push(countryName);
+    // if (countryName.match(regex)) {
+    //   newAddedCountries.push(countryName);
+    //   country + ' ' + countryName.match(regex);
+    // } else {
+    //   errorMessage = 'No such country';
+    // }
+    // if (countryWithFlags.includes(country)) {
+    //   errorMessage = 'Country already exists';
+
+    // } else {
+    //   countryWithFlags.push(country);
+    // }
+    if (countryName === Number) {
       errorMessage = 'Country must be in alphabets only';
-    } else if (country === '') {
-      errorMessage = 'Please enter a country!';
-    } else {
-      countryWithFlags.push(country);
     }
-  }
 
-  function getNewCountry() {
-    console.log(countryWithFlags);
-    return countryWithFlags;
+    if (countryName === '') {
+      errorMessage = 'Please enter a country!';
+    }
+    return newAddedCountries;
   }
-
   function getErrorMessage() {
     return errorMessage;
   }
+
   return {
     getCountryNamesWithFlags,
     addNewCountry,
-    getNewCountry,
+    getFlagEmoji,
     getErrorMessage,
   };
 }
