@@ -1,7 +1,3 @@
-html {
-    background-color:rgb(223, 177, 118)
-}
-
 .container{
     width: 200px;
     display: flex;
@@ -10,6 +6,7 @@ html {
     flex-direction: column;
     margin: auto;
     font-family: 'Raleway', sans-serif;
+    font-size: x-large;
 }
 
 .error {
@@ -17,20 +14,65 @@ html {
 }
 
 .add-btn{
-    border-radius: 7px;
+    border-radius: 6px;
     background-color: #eede01;
-    padding: 5px 5px;
-    margin: 6px;
+    padding: 7px 7px;
+    margin: 7px;
     font-size: 15px;
     cursor: pointer;
     text-align: center;
 }
 
-input[type=text], select {
+
+.search-btn{
+    border-radius: 6px;
+    background-color: #eede01;
+    padding: 7px 7px;
+    margin: 7px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .countries {
+      font-size:xx-large;
+      display: inline-block;
+  }
+
+  #searchCountry{
     padding: 8px 8px;
     margin: 8px 10;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 2px solid black;
     border-radius: 8px;
     box-sizing: border-box;
+  }
+
+  .addCountry {
+    padding: 10px 10px;
+    margin: 10px 10px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .sortCountries{
+    border-radius: 6px;
+    background-color: #f0eaa1;
+    padding: 7px 7px;
+    margin: 7px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .resetCountries {
+    border-radius: 6px;
+    background-color: #eede01;
+    padding: 7px 7px;
+    margin: 7px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
   }

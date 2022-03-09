@@ -8,63 +8,70 @@
     <link rel="stylesheet" href="./styles/simple-grid-min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
     <script type="text/x-template" class="countries">
-          {{#each results}}
-              <li>{{this}}</li>
-          {{/each}}
-          {{errors}}
-          {{#each addedCountry}}
-          <li>{{this}}</li>
+      {{#each results}}
+          {{this}}
       {{/each}}
+      {{#each addedCountry}}
+          {{this}}
+      {{/each}}
+      {{errors}}
     </script>
     <title>Country flags list</title>
   </head>
-  <body>
+  <body style="background-color: rgb(226, 180, 120)">
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2 style="text-align: center">
-            <strong style="color: black">Country flag list</strong>
-          </h2>
+          <h1 style="text-align: center">
+            <strong style="color: black">Country Flag List</strong>
+          </h1>
         </div>
       </div>
-      <div class="row">
-        <div style="text-align: center" class="col-6">
-          <form>
-            <input
-              type="text"
-              class="text-input"
-              placeholder="Please enter a country"
-            />
-            <button type="button" class="add-btn">Add</button>
-          </form>
-        </div>
-        <div style="text-align: center" class="col-6">
-          <input
-            type="text"
-            id="myInput"
-            placeholder="Search for country.."
-            title="Type in a name of country"
-          />
-        </div>
-      </div>
-      <div class="row">
-        <div style="text-align: center" class="col-6">
-          <span class="flag"></span>
-        </div>
-        <div style="text-align: center" class="col-6">
-          <span class="newCountries"></span>
-        </div>
-      </div>
-      <br />
       <div class="row">
         <div style="text-align: center" class="col-12">
           <span class="error"></span>
         </div>
       </div>
       <br />
+      <div class="row">
+        <div style="text-align: center" class="col-6">
+          <input type="text" class="addCountry" placeholder="Add a country" />
+          <button type="button" class="add-btn">Add</button>
+        </div>
+        <div style="text-align: center" class="col-6">
+          <input
+            type="text"
+            id="searchCountry"
+            placeholder="Search for country"
+            title="Type in a name of country"
+          />
+          <button type="button" class="search-btn">Search</button>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div style="text-align: center" class="col-4">
+          <a href="https://emojipedia.org/flag-india/">Copy flag</a>
+        </div>
+        <div style="text-align: center" class="col-4">
+          <button type="button" class="sortCountries">
+            Sort Countries[A-Z]
+          </button>
+        </div>
+        <div style="text-align: center" class="col-4">
+          <button type="button" class="resetCountries">Reset</button>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div style="text-align: center" class="col-12">
+          <span class="flag"></span>
+        </div>
+      </div>
     </div>
   </body>
   <script src="./local-storage.js"></script>
-  <script src="./countries-flags.js"></script>
-  <script src="./flag.js"></script>
+  <script src="./country-flags.js"></script>
+  <script src="./country-flags-dom.js"></script>
 </html>
