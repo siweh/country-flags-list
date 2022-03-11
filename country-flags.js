@@ -30,30 +30,13 @@ function CountryFlags(countries = []) {
     return countryWithFlags;
   }
   function addNewCountry(countryName) {
-    // if(regex.test(countryName)){
-
-    // }
-    // countryWithFlags.push(countryName);
-    // if (countryName.match(regex)) {
-    //   newAddedCountries.push(countryName);
-    //   country + ' ' + countryName.match(regex);
-    // } else {
-    //   errorMessage = 'No such country';
-    // }
-    if (countryWithFlags.includes(countryName)) {
-      errorMessage = 'Country already exists';
-    } else {
-      if (countryName !== null) {
-        countryWithFlags.push(countryName);
-      }
+    if (countryName !== null) {
+      countryWithFlags.push(countryName);
     }
-    if (typeof countryName === 'number') {
-      errorMessage = 'Country must be in alphabets only';
-    }
-
     if (countryName === '') {
       errorMessage = 'Please enter a country!';
     }
+
     return countryWithFlags;
   }
 
