@@ -2,6 +2,9 @@ function CountryFlags(countries = []) {
   let countryWithFlags = countries !== null ? countries : [];
   let errorMessage = '';
 
+  //console.log(countryWithFlags);
+  var regex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
+
   const countryNames = [
     'Argentina',
     'Brazil',
@@ -27,6 +30,9 @@ function CountryFlags(countries = []) {
     return countryWithFlags;
   }
   function addNewCountry(countryName) {
+    // if(regex.test(countryName)){
+
+    // }
     // countryWithFlags.push(countryName);
     // if (countryName.match(regex)) {
     //   newAddedCountries.push(countryName);
@@ -37,9 +43,11 @@ function CountryFlags(countries = []) {
     if (countryWithFlags.includes(countryName)) {
       errorMessage = 'Country already exists';
     } else {
-      countryWithFlags.push(countryName);
+      if (countryName !== null) {
+        countryWithFlags.push(countryName);
+      }
     }
-    if (typeof countryName == 'number') {
+    if (typeof countryName === 'number') {
       errorMessage = 'Country must be in alphabets only';
     }
 
@@ -59,13 +67,16 @@ function CountryFlags(countries = []) {
       }
       return 0;
     });
+    console.log(sortedCountries);
     return sortedCountries;
   }
 
   function searchByCountryNames(name) {
-    const searchedResults = countryWithFlags.filter((element) =>
-      element.includes(name)
-    );
+    //console.log(countryWithFlags);
+    const searchedResults = countryWithFlags.filter((element) => {
+      return element?.toLowerCase().includes(name?.toLowerCase());
+    });
+    console.log(searchedResults);
     return searchedResults;
   }
 

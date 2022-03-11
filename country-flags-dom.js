@@ -22,10 +22,10 @@ document.querySelector('.flag').innerHTML = theTemplate({
 });
 function clickedAddBtn() {
   let inputResults = textInputElem.value;
-  console.log(inputResults);
+  //console.log(inputResults);
 
   let resultsOfCountry = listOfCountries.addNewCountry(inputResults);
-  console.log(resultsOfCountry);
+  //console.log(resultsOfCountry);
 
   document.querySelector('.flag').innerHTML = theTemplate({
     addedCountry: resultsOfCountry,
@@ -46,18 +46,20 @@ function clickedAddBtn() {
   textInputElem.value = '';
 }
 
+function sortingCountriesAlphabetically() {
+  let countrySort = listOfCountries.sortCountriesByName();
+  console.log(countrySort);
+  document.querySelector('.flag').innerHTML = theTemplate({
+    results: countrySort,
+  });
+}
 function clickedSearchBtn() {
   let searchInput = searchCountryElem.value;
   console.log(searchInput);
   let searchedCountry = listOfCountries.searchByCountryNames(searchInput);
   console.log(searchedCountry);
-}
-
-function sortingCountriesAlphabetically() {
-  let countrySort = listOfCountries.sortCountriesByName();
-  //console.log(countrySort);
   document.querySelector('.flag').innerHTML = theTemplate({
-    results: countrySort,
+    results: searchedCountry,
   });
 }
 
@@ -67,6 +69,6 @@ function resetCountries() {
 }
 
 addBtn.addEventListener('click', clickedAddBtn);
-searchBtn.addEventListener('click', clickedSearchBtn);
 sortingBtn.addEventListener('click', sortingCountriesAlphabetically);
+searchBtn.addEventListener('click', clickedSearchBtn);
 resetBtn.addEventListener('click', resetCountries);

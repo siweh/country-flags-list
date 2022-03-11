@@ -9,6 +9,10 @@
     font-size: x-large;
 }
 
+.containers{
+    background-color: rgb(209, 192, 169);
+}
+
 .error {
     color: red;
 }
